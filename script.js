@@ -16,4 +16,19 @@ function RemoveDuplicated() {
     const textarea = document.getElementById("shuffledata");
     const duplicated = [...new Set(textarea.value.trim().split('\n'))];
     textarea.value = duplicated.join('\n')
+    fetch('https://api.example.com/data')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            textarea.value = data
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+
 }
