@@ -16,7 +16,7 @@ function RemoveDuplicated() {
     const textarea = document.getElementById("shuffledata");
     const duplicated = [...new Set(textarea.value.trim().split('\n'))];
     textarea.value = duplicated.join('\n')
-    fetch('https://api.example.com/data')
+    fetch('https://yesno.wtf/api?ref=public_apis')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
