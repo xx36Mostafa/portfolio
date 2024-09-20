@@ -12,11 +12,14 @@
 
 <body>
     <header>
-        <a href="#" class="logo">MU-NASSER</a>
         <nav class="navigation">
             <a href="#tools">Tools</a>
             <a href="#project">Porjects</a>
+        </nav>
+        <a href="#" class="logo">MU-NASSER</a>
+        <nav class="navigation">
             <a href="#contact">Contact Me</a>
+            <a href="#contact">Programming</a>
         </nav>
     </header>
 
@@ -29,10 +32,10 @@
             <a href="#project" class="main-btn">View My Work</a>
             <a href="#tools" class="tools-btn">View My Tools</a>
             <div class="social-icons">
-                <a href="https://www.linkedin.com/in/36xmustafa/"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.github.com/xx36Mostafa?tab=repositories"><i class="fab fa-github"></i></a>
-                <a href="https://www.facebook.com/iBoDa.74/"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/mu_36boda/"><i class="fab fa-instagram"></i></a>
+                <a href="#https://wwww.linkedin.com/in/36xmustafa/"><i class="fab fa-linkedin"></i></a>
+                <a href="#https://wwww.github.com/xx36Mostafa?tab=repositories"><i class="fab fa-github"></i></a>
+                <a href="#https://www.facebook.com/iBoDa.74/"><i class="fab fa-facebook"></i></a>
+                <a href="#https://www.instagram.com/mu_36boda/"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </section>
@@ -55,22 +58,23 @@
             </div>
             <div class="card">
                 <div class="icon">
-                    <!-- <img src="images/shuffle-solid.svg" alt=""> -->
                     <i class="fa-solid fa-shuffle"></i>
                 </div>
                 <div class="info">
-                    <h3>Shuffle Lines</h3>
+                    <h3>Filter Accounts</h3>
                     <div class="shuffle">
-                        <textarea name="shuffledata" id="shuffledata"></textarea>
+                        <textarea name="filterAccs" id="filterAccs"></textarea>
                     </div>
-                    <button onclick="shuffle()">Shuffle</button>
-                    <button onclick="CopyToClipboard()">Copy</button>
-                    <button onclick="RemoveDuplicated()">Remove Duplicated</button>
+                    <button onclick="filterAccounts()">Filter</button>
+                    <button onclick="CopyToClipboard('accs')">Copy</button>
                 </div>
             </div>
-
         </div>
     </section>
+    <div class="input-box">
+        <span class="prefix">+20</span>
+        <input class="tel" type="tel" placeholder="1098974486" disabled>
+    </div>
     <script src="script.js"></script>
 </body>
 
