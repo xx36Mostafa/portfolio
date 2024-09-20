@@ -8,27 +8,50 @@ function shuffle() {
     }
     textarea.value = lines.join('\n');
 }
-function CopyToClipboard() {
-    const textarea = document.getElementById("shuffledata");
-    navigator.clipboard.writeText(textarea.value);
+
+function CopyToClipboard(X = false) {
+    let textarea;
+
+    if (X == false) {
+        textarea = document.getElementById("shuffledata");
+    } else {
+        textarea = document.getElementById("filterAccs");
+    }
+    navigator.clipboard.writeText(textarea.value)
+        .then(() => {
+            console.log("Text copied to clipboard!");
+            alert("Text copied to clipboard!");
+        })
+        .catch(err => {
+            console.error("Failed to copy: ", err);
+            alert("Failed to copy text. Please try again.");
+        });
+
 }
+
 function RemoveDuplicated() {
     const textarea = document.getElementById("shuffledata");
     const duplicated = [...new Set(textarea.value.trim().split('\n'))];
     textarea.value = duplicated.join('\n')
-    fetch('https://yesno.wtf/api?ref=public_apis')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            textarea.value = data
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('There has been a problem with your fetch operation:', error);
-        });
+}
 
+function filterAccounts() {
+    const textarea = document.getElementById("filterAccs");
+    let combinedAccounts = [];
+    let currentAccount = "";
+
+    for (let i = 0; i < textarea.value.trim().split('\n').length; i++) {
+        let line = textarea.value.trim().split('\n')[i].trim();
+
+        if (line.startsWith("login:")) {
+            currentAccount = line.replace("login: ", "").trim();
+        }
+
+        if (line.startsWith("password:") && currentAccount) {
+            let password = line.replace("password: ", "").trim();
+            combinedAccounts.push(`${currentAccount}:${password}`);
+            currentAccount = "";
+        }
+    }
+    textarea.value = combinedAccounts.join('\n');
 }
